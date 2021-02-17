@@ -1,10 +1,9 @@
 Poor security practice # 1
    Web app security group accepts incoming traffic from everywhere (0.0.0.0/0) which makes the system vulnerable 
-to external threats. 
+to external threats such as OWASP 10 risks.
 
 
 Poor security practice # 2
 
-   Web service instance is placed in public subnet. Ports 5000 & 80 are open to the internet. 
-
+   S3 buckets are fully accessible (read+write access) by both EC2 instances instead of limited access for read-only operations.
 
