@@ -1,0 +1,15 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed
+for the environment in this project.
+----------------------------------------------------------------------------------------------------
+- Security groups are overly permissive allowing connections from public internet (0.0.0.0/0) to ports 22, 80, 5000.
+- Password authentication is enabled for SSH. 
+- S3 bucket allows all actions by all resources accessing it. 
+- S3 buckets are not encrypted.
+
+
+Recommendations on how to remediate the vulnerabilities
+-------------------------------------------------------
+- Updated the inbound rules for each security group to allow ingress only from trusted  sources (restricted IP range or ALB).
+- Disable password authentication by editing sshd_config file. 
+- Set up role-based access to S3 buckets specifiying only required actions in bucket policies. 
+- Encrypt S3 buckets.
