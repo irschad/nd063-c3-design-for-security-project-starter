@@ -1,0 +1,15 @@
+Identify 2-3 changes that can be made to our environment to prevent an SSH brute force attack from the internet.
+
+1. Do not allow SSH at port 22 from public internet. 
+   Rather, allow SSH only from trusted sources.
+2. Disable root user's access via SSH by editing /etc/ssh/sshd_config file. 
+
+
+Neither instance should have had access to the secret recipes bucket;
+even in the instance that API credentials were compromised how could we have prevented access to sensitive data?
+
+=> Grant specific role-based access to buckets which need to be accessible (free recipe bucket in this case) which'll prevent access to
+   secret recipes bucket as it won't be defined accessible as per the custom IAM role policy. 
+   Avoid giving instances access to all S3 buckets.
+   Also, let the role policy grant only required level of access such as certain read-only operations.
+   Enable S3 encryption to protect data. 
