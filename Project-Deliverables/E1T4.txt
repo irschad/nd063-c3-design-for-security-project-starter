@@ -1,0 +1,10 @@
+Poor security practice # 1
+   Web app security group accepts incoming traffic from everywhere (0.0.0.0/0) which makes the system vulnerable 
+to external threats. 
+
+
+Poor security practice # 2
+
+   Web service instance is placed in public subnet. Ports 5000 & 80 are open to the internet. 
+
+
