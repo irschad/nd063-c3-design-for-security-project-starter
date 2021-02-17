@@ -1,0 +1,35 @@
+
+a. Tools to Scan infrastructure as code templates.
+        - CloudSploit  (for scanning CloudFormation templates)
+	- Terrascan (for scanning Terraform templates)
+	- Checkov (for scanning CloudFormation, Terraform, ARM templates, etc.)
+
+   Example of compliance violations or vulnerabilities:
+        - CloudSploit can detect vulnerabilities such as ELBs with invalid SSL configs, security groups set to "0.0.0.0/0",
+ 	  KMS keys without rotation enabled, etc. 
+	- Terrascan scan outputs violations such as http port open to internet, AWS CloudWatch log group not encrypted, etc. 
+        - Checkov scans comprise of credentials scans and resource scans. 
+ 	  Credentials scans check for vulnerabilities such as hardcoding credentials into Terraform configuration, EC2 data
+          or even in serverless lambda functions, while resource scans check for vulnerabilities such as too permissive IAM policies,
+          security groups setting to "0.0.0.0./0", S3 bucket allowing WRITE permissions to everyone, etc. 
+        
+
+b. Tools to scan AMI’s or containers for OS vulnerabilities. 
+	- Anchore
+	- Sysdig 
+
+   Example of compliance violations or vulnerabilities:  
+	- Anchore scan can check for OS vulnerabilities such as vulnerabilities against operating system packages (RPM, DPKG, APK, etc.)
+	- Sysdig can detect container misconfigurations such as exposing insecure ports (e.g. ssh port 22 that shouldn't be open
+	  on containers), inadvertently including private files via a bad COPY or ADD statement, leaking secrets or credentials, etc. 
+
+
+c. Tools to scan an AWS environment for cloud configuration vulnerabilities.
+	- Cloud Custodian 
+	- Prisma Cloud
+
+   Example of compliance violations or vulnerabilities: 
+	- Cloud Custodian can check if a firewall rule is in place or perform early detection of obsolete snapshots, etc. 
+	- Prisma Cloud can check whether RBAC rules are not too permissive, or if sensitive information is provided in environment
+	  variables, or whether image is not updated to latest, etc. 
+
